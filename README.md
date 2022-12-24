@@ -6,7 +6,7 @@ Access management system developed with [Gin](https://gin-gonic.com) web framewo
 
 * Clone the project into your $GOPATH
 ```
-git clone git@git.irrasoft.com:team-nhtp/nhtp-api.git
+git clone git@github.com:PhyuPhyu/access-management-system.git
 cd projectFolder
 ```
 * Create database schema in mysql 
