@@ -58,7 +58,7 @@ func UserRegister(c *gin.Context) {
 	}
 
 	// Send email verification code to user
-	err = utils.SendEmailVerificationCode(user.Email, code)
+	err = utils.SendEmailVerificationCode(user, code)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -189,7 +189,7 @@ func UserAccountApprovedByAdmin(c *gin.Context) {
 		}
 
 		// Send admin approval email to user
-		err = utils.SendApprovedEmail(user.Email)
+		err = utils.SendApprovedEmail(user)
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return

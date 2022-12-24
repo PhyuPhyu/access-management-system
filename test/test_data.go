@@ -25,12 +25,12 @@ type AuthRequestTest struct {
 // -------------------------------------Testing for user register ------------------------------------------------------------
 var RegisterTestData = []RequestTest{
 	{
-		`{"name": "Phyu Phyu","email": "phyuphyuthin24hha.dev@gmail.com","password": "123456"}`,
+		`{"name": "Phyu Phyu","email": "phyuphyuthin24hha.dev@gmail.com","password": "password"}`,
 		http.StatusCreated,
 		`{"message":"Email sent successfully to phyuphyuthin24hha.dev@gmail.com"}`,
 	},
 	{
-		`{"name": "Phyu Phyu","email": "phyuphyuthin24hha.dev@gmail.com","password": "123456"}`,
+		`{"name": "Phyu Phyu","email": "phyuphyuthin24hha.dev@gmail.com","password": "password"}`,
 		http.StatusBadRequest,
 		`{"error":"Error 1062 (23000): Duplicate entry 'phyuphyuthin24hha.dev@gmail.com' for key 'users.email'"}`,
 	},
@@ -58,17 +58,17 @@ var VerifyEmailTestData = []RequestTest{
 // -------------------------------------Testing for user login ------------------------------------------------------------
 var UserLoginTestData = []RequestTest{
 	{
-		`{"email": "phyuphyuthin24hha.dev@gmail.com","password": "123456"}`,
+		`{"email": "phyuphyuthin24hha.dev@gmail.com","password": "password"}`,
 		http.StatusOK,
 		`{"message":"User login successfully","token":"([a-zA-Z0-9-_.]{115})"}`,
 	},
 	{
-		`{"email": "phyuphyuthin24hha1.dev@gmail.com","password": "123456"}`,
+		`{"email": "phyuphyuthin24hha1.dev@gmail.com","password": "password"}`,
 		http.StatusBadRequest,
 		`{"error":"Input email is not registered yet"}`,
 	},
 	{
-		`{"email": "phyuphyuthin24hha.dev@gmail.com","password": "12345"}`,
+		`{"email": "phyuphyuthin24hha.dev@gmail.com","password": "password"}`,
 		http.StatusBadRequest,
 		`{"error":"Invalid password"}`,
 	},

@@ -27,7 +27,6 @@ func ConnectDB(config *config.Config) {
 
 // Migrate tables
 func MigrateTables() {
-	fmt.Println("got called")
 	Db.Migrator().HasTable(&Role{})
 	Db.Migrator().DropTable(&Role{})
 
